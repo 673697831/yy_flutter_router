@@ -1,0 +1,6 @@
+[submodule "twins"]
+	path = twins
+	url = http://gitlab.bigo.sg:8081/flutter-team/twins
+[submodule "flutter_boost"]
+	path = flutter_boost
+	url = https://github.com/alibaba/flutter_boost

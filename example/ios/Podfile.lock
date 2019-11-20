@@ -1,0 +1,34 @@
+PODS:
+  - Flutter (1.0.0)
+  - flutter_boost (0.0.2):
+    - Flutter
+  - twins (0.0.1):
+    - Flutter
+  - yy_flutter_router (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `.symlinks/flutter/ios`)
+  - flutter_boost (from `.symlinks/plugins/flutter_boost/ios`)
+  - twins (from `.symlinks/plugins/twins/ios`)
+  - yy_flutter_router (from `.symlinks/plugins/yy_flutter_router/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: ".symlinks/flutter/ios"
+  flutter_boost:
+    :path: ".symlinks/plugins/flutter_boost/ios"
+  twins:
+    :path: ".symlinks/plugins/twins/ios"
+  yy_flutter_router:
+    :path: ".symlinks/plugins/yy_flutter_router/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  flutter_boost: a7cfa776b75329d5e7d101d0cd33e75042bcde69
+  twins: 3b0f67e1d163bb522e2f3d12a2e7adce45b5d8c7
+  yy_flutter_router: f398973b128590fa54e95a1974661e582730bfb8
+
+PODFILE CHECKSUM: 64b2109b760ac9073c864e2a8278e6464efaa219
+
+COCOAPODS: 1.6.0
