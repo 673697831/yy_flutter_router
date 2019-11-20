@@ -5,41 +5,41 @@ import 'package:twins/twins.dart';
 import 'package:yy_flutter_router/yy_flutter_router.dart';
 import 'TestPage1.dart';
 
-// void main() {
-//   runApp(
-//     YyFlutterRouter.singleton.buildApp((Map params){
-//       return TestPage1(text: params["text"] ?? "");
-//     })
-//   );
-// }
-
 void main() {
   runApp(
-    TwinsApp(
-      fragmentBuilder: (uuid, params) {
-        return Fragment(
-          uuid: uuid,
-          builder: (params) {
-            return MaterialApp(
-              debugShowCheckedModeBanner: true,
-              home: TwinsAppHome(
-                child: params["text"] == "dialog"
-                    ? TestDialog()
-                    : TestPage1(
-                        text: params["text"] ?? "",
-                      ),
-              ),
-            );
-          },
-          params: params,
-        );
-      },
-      deamonBuilder: (uuid, params) {
-        return TestDaemon(uuid: uuid, params: params);
-      },
-    ),
+    YyFlutterRouter.singleton.buildApp((Map params){
+      return TestPage1(text: params["text"] ?? "");
+    })
   );
 }
+
+// void main() {
+//   runApp(
+//     TwinsApp(
+//       fragmentBuilder: (uuid, params) {
+//         return Fragment(
+//           uuid: uuid,
+//           builder: (params) {
+//             return MaterialApp(
+//               debugShowCheckedModeBanner: true,
+//               home: TwinsAppHome(
+//                 child: params["text"] == "dialog"
+//                     ? TestDialog()
+//                     : TestPage1(
+//                         text: params["text"] ?? "",
+//                       ),
+//               ),
+//             );
+//           },
+//           params: params,
+//         );
+//       },
+//       deamonBuilder: (uuid, params) {
+//         return TestDaemon(uuid: uuid, params: params);
+//       },
+//     ),
+//   );
+// }
 
 // class TestPage1 extends StatefulWidget {
 //   final String text;

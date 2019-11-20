@@ -45,10 +45,7 @@
 //}
 
 - (void)onTap {
-    if (self.testFragment != nil) {
-        TwinsDialog *dialog = [[TwinsDialog alloc] initWithParams:@{@"text": @"dialog"}];
-        [dialog showInViewController:self];
-//        [self.navigationController pushViewController:[TestViewController new] animated:YES];
+    if (self.testViewController != nil) {
         return;
     }
     [self.navigationController setNavigationBarHidden:YES];
@@ -56,10 +53,10 @@
     static int x = 0;
 //    static int y = 20 + 44;
     static int y = 0;
-    self.testFragment = [[TwinsFragmentViewController alloc] initWithParams:@{@"text": text}];
+    self.testViewController = [[YYFlutterViewController alloc] initWithParams:@{@"text": text}];
     //self.testFragment.view.frame = CGRectMake(x, y, 375, 500);
-    [self addChildViewController:self.testFragment];
-    [self.view addSubview:self.testFragment.view];
+    [self addChildViewController:self.testViewController];
+    [self.view addSubview:self.testViewController.view];
 //    x += 88;
 //    if (x > 360) {
 //        x = 0;
