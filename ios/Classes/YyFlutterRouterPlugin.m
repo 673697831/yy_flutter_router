@@ -1,6 +1,12 @@
 #import "YyFlutterRouterPlugin.h"
 #import "TwinsHostViewController.h"
 
+@interface YyFlutterRouterPlugin ()
+
+@property (nonatomic, strong) FlutterEventSink eventSinkHandler;
+
+@end
+
 @implementation YyFlutterRouterPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
   FlutterMethodChannel* channel = [FlutterMethodChannel
@@ -8,6 +14,11 @@
             binaryMessenger:[registrar messenger]];
   YyFlutterRouterPlugin* instance = [YyFlutterRouterPlugin sharedInstance];
   [registrar addMethodCallDelegate:instance channel:channel];
+
+    FlutterEventChannel *eventChannel =
+    [FlutterEventChannel eventChannelWithName:@"yy_flutter_router_event"
+                              binaryMessenger:[registrar messenger]];
+    [eventChannel setStreamHandler:instance];
 }
 
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
@@ -16,6 +27,20 @@
   } else {
     result(FlutterMethodNotImplemented);
   }
+}
+
+#pragma mark - FlutterStreamHandler
+
+- (FlutterError *)onListenWithArguments:(id)arguments eventSink:(FlutterEventSink)eventSink
+{
+    self.eventSinkHandler = eventSink;
+    return nil;
+}
+
+- (FlutterError *)onCancelWithArguments:(id)arguments
+{
+    self.eventSinkHandler = nil;
+    return nil;
 }
 
 #pragma mark -
@@ -43,6 +68,11 @@
 //                                        withObject:engine];
 //#pragma clang diagnostic pop
 //    }
+}
+
++ (FlutterViewController *)shareHost
+{
+    return [TwinsHostViewController shared];
 }
 
 @end

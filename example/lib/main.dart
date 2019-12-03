@@ -4,11 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:twins/twins.dart';
 import 'package:yy_flutter_router/yy_flutter_router.dart';
 import 'TestPage1.dart';
+import 'TestPage2.dart';
 
 void main() {
   runApp(
     YyFlutterRouter.singleton.buildApp((Map params){
-      return TestPage1(text: params["text"] ?? "");
+      int count = 0;
+      if (params["count"] is String) {
+        count = int.parse(params["count"]);
+      }else if (params["count"] is int) {
+        count = params["count"];
+      }
+      if (params["appBar"] == null) {
+        return TestPage1(params["page"] ?? "", count);
+      }else {
+        return TestPage2(params["page"] ?? "", count);
+      }
     })
   );
 }

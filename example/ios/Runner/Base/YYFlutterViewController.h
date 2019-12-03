@@ -9,4 +9,6 @@
 
 @interface YYFlutterViewController : TwinsFragmentViewController
 
+@property (nonatomic, assign) BOOL yy_preferredNavigationBarHidden;
+
 @end

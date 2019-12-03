@@ -6,6 +6,7 @@
 //
 
 #import "YYFlutterViewController.h"
+#import "UIViewController+YYViewControllers.h"
 
 @interface YYFlutterViewController ()
 
@@ -17,5 +18,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self yy_viewDidAppear];
+    [super viewDidAppear:animated];
+}
+
+
 
 @end

@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YYFlutterTestRootViewController : UIViewController
 
+@property (nonatomic, assign) NSUInteger count;
+@property (nonatomic, copy) NSString *page;
+
 @end
 
 NS_ASSUME_NONNULL_END
